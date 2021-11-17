@@ -3,11 +3,11 @@ import os
 
 from nuvolos_collect.logging import clog
 from nuvolos_collect.exception import ManifestMissingException, MissingAutograderFile
-from nuvolos_collect.distribute.utils import read_manifest
+from nuvolos_collect.handback.utils import read_manifest
 
 
 def otter_grade(source_folder, autograder_location, relative_path, grade_identifier=""):
-    from otter.api import grade_submission
+    # from otter.api import grade_submission
 
     if not os.path.exists(autograder_location):
         clog.error(
@@ -28,8 +28,10 @@ def otter_grade(source_folder, autograder_location, relative_path, grade_identif
         location_folder = d["target"]
         full_hw_location = os.path.join(location_folder, relative_path)
 
-        hw_result = grade_submission(full_hw_location, autograder_location)
-        hw_result_dict = hw_result.to_dict()
+        # hw_result = grade_submission(full_hw_location, autograder_location)
+
+        # hw_result_dict = hw_result.to_dict()
+        hw_result_dict = {"a": 1}
 
         results += [{"location": full_hw_location, "result": hw_result_dict}]
 

@@ -9,9 +9,9 @@ import click_log
 from nuvolos_collect.logging import clog
 import click
 from .__init__ import __version__
-from .collect import collect
-from .handback import handback
-from .grade import otter_grade
+from nuvolos_collect.collect import collect
+from nuvolos_collect.handback import handback
+from nuvolos_collect.grade import otter_grade
 
 
 @click.group()

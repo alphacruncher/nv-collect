@@ -1,4 +1,4 @@
-from nuvolos_collect.distribute.utils import (
+from nuvolos_collect.handback.utils import (
     read_manifest,
     generate_target_info,
     execute_handback_copy,
@@ -6,7 +6,7 @@ from nuvolos_collect.distribute.utils import (
 )
 
 
-def distribute(source_folder):
+def handback(source_folder):
 
     """
     Read the collection manifest log.
