@@ -11,6 +11,7 @@ def generate_df(data_dict, tag_info):
     student_id = matching.group(2)
 
     student_result = pd.DataFrame(data_dict)[0:2]
+    clog.debug(student_result)
     student_result["student_id"] = student_id
     return student_id
 
