@@ -11,6 +11,7 @@ In order to test functionality of the Nuvolos Assign-Grade-Handback workflow, we
 To get the otter tutorial, open a JupyterLab terminal and hit
 ```
 wget https://otter-grader.readthedocs.io/en/latest/_static/tutorial.zip
+unzip tutorial.zip
 ```
 
 2. Modify `demo.ipynb`
@@ -66,9 +67,34 @@ The directory structure will be as such:
 |   +-- ...
 +-- single_user_inst_<code2>
 |   +-- ...
-
 ```
 
 6. Grade hand-ins
 
-##
+In order to grade hand-ins we need to use the `autograder.zip` file generated in Step 3. To grade all collected assignments:
+
+```
+nvcollect otter-grade --source_folder /files/test_collect --autograder_location /files/otter-test/dist/autograder/autograder.zip --relative_path demo.ipynb
+```
+
+Observe the following:
+
+* `source_folder` is the same folder as provided as `target_folder` to the collection command.
+* You have to provide the absolute path of the `autograder.zip` file that belongs to the particular notebook file you want to grade.
+* The `relative_path` parameter tells the tool where to look for in each student submission directory for the notebook file that needs to be graded.
+
+As an outcome of the grading, you get the following new items in the `source_folder`:
+* A `grade.json` file which contains exhaustive information about the evaluation of the tests.
+* A `grade.csv` file which contains the score of each student.
+* A `grade.csv` file in each student folder  which contains the score of the student.
+
+7. Handing back
+
+You might want to add additional artifacts to each students folders (either manually or programmatically). Once you are done with this, you can push back the results of the grading with the command
+
+```
+nvcollect handback --source_folder /files/test_collect
+```
+
+* Notice that the `source_folder` here is the same folder to which we collected and then in which the grading process ran.
+
