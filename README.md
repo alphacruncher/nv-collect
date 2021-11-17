@@ -1,19 +1,20 @@
 # nuvolos_collect
 
-This is the Nuvolos Collector project.
+The Nuvolos Assignment Collector is a Command Line (CLI) tool that lets you collect hand-ins from your students with a single command, and once you've completed the grading, handing back is also a single command.
 
-## Project Features
+What you require:
 
-* [nuvolos_collect](http://nuvolos_collect.readthedocs.io/)
-* a starter [Click](http://click.pocoo.org/5/) command-line application
-* automated unit tests you can run with [pytest](https://docs.pytest.org/en/latest/)
-* a [Sphinx](http://www.sphinx-doc.org/en/master/) documentation project
+- Access to [Nuvolos](https://nuvolos.cloud)
+- Create an [assignment](https://docs.nuvolos.cloud/education/student-topics/assignments-1)
+- Once the deadline has passed and students handed in their assignments, collect them with `nvcollect collect`
+- Grade the assignments
+- Once you are done with grading, hand back the documents with `nvcollect distribute`.
 
 ## Getting Started
 
-The project's documentation contains a section to help you
-[get started](https://nuvolos_collect.readthedocs.io/en/latest/getting_started.html) as a developer or
-user of the library.
+This package comes installed with Python-based Nuvolos applications. In case you are missing the package for some reason, reach out to our support via Intercom. 
+
+If you want to update the current version, hit `pip install --upgrade git+https://github.com/alphacruncher/nv-collect` in your terminal.
 
 ## Development Prerequisites
 
