@@ -10,10 +10,10 @@ def generate_df(data_dict, tag_info):
     matching = student_id_re.search(tag_info)
     student_id = matching.group(2)
 
-    student_result = pd.DataFrame(data_dict)[0:2]
+    student_result = pd.DataFrame(data_dict)[0:1]
     clog.debug(student_result)
     student_result["student_id"] = student_id
-    return student_id
+    return student_result
 
 
 def merge_csv(df_list):
