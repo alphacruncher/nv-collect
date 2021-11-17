@@ -23,23 +23,3 @@ If you're going to be working in the code (rather than just using the library), 
 * [GNU Make](https://www.gnu.org/software/make/)
 * [Pandoc](https://pandoc.org/)
 
-## Resources
-
-Below are some handy resource links.
-
-* [Project Documentation](http://nuvolos_collect.readthedocs.io/)
-* [Click](http://click.pocoo.org/5/) is a Python package for creating beautiful command line interfaces in a composable way with as little code as necessary.
-* [Sphinx](http://www.sphinx-doc.org/en/master/) is a tool that makes it easy to create intelligent and beautiful documentation, written by Geog Brandl and licnsed under the BSD license.
-* [pytest](https://docs.pytest.org/en/latest/) helps you write better programs.
-* [GNU Make](https://www.gnu.org/software/make/) is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
-
-
-## Authors
-
-* **Mate Kovacs** - *Initial work* - [github](https://github.com/matek-alphacruncher)
-
-See also the list of [contributors](https://github.com/matek-alphacruncher/nuvolos_collect/contributors) who participated in this project.
-
-## LicenseCopyright (c) Mate Kovacs
-
-All rights reserved.
