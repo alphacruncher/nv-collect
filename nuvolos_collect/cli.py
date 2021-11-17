@@ -10,7 +10,8 @@ from nuvolos_collect.logging import clog
 import click
 from .__init__ import __version__
 from .collect import collect
-from .distribute import distribute
+from .handback import handback
+from .grade import otter_grade
 
 
 @click.group()
@@ -25,7 +26,8 @@ def cli(ctx):
     The following commands can be provided:
 
     collect: collects a specified assignment
-    handout: hands out a specified assignment
+    handback: hands out a specified assignment
+    otter-grade: grades collected assignments with the otter-grader library (optional, needs to be installed)
     """
     # Use the verbosity count to determine the logging level...
     if ctx.obj is None:
@@ -67,7 +69,7 @@ def collect_assignment(ctx, **kwargs):
     return ret
 
 
-@cli.command("distribute")
+@cli.command("handback")
 @click.option(
     "--source_folder",
     type=str,
@@ -75,16 +77,47 @@ def collect_assignment(ctx, **kwargs):
     help="Sets the assignment folder, which is provided by you on the Nuvolos UI when creating the assignment distribution.",
 )
 @click.pass_context
-def distribute_assignment(ctx, **kwargs):
+def handback_assignment(ctx, **kwargs):
     """
-    distribute command
+    handback command
 
-    Distribute a specified assignment. This triggers a script that takes a collected and graded set of assignments and
+    handback a specified assignment. This triggers a script that takes a collected and graded set of assignments and
     places them iteratively into their respective assignment_review/handback/... folders.
 
     The source directory should be the value that nvcollect collect was called with as a target.
     """
-    ret = distribute(**kwargs)
+    ret = handback(**kwargs)
+    return ret
+
+
+@cli.command("otter-grade")
+@click.option(
+    "--source_folder",
+    type=str,
+    required=True,
+    help="The folder where collected assignments reside.",
+)
+@click.option(
+    "--autograder_location",
+    type=str,
+    required=True,
+    help="The folder where collected assignments reside.",
+)
+@click.option(
+    "--relative_path",
+    type=str,
+    required=True,
+    help="The relative path compared to the assignment folder root where the notebook to be graded is located.",
+)
+@click.pass_context
+def grade_assignment(ctx, **kwargs):
+    """
+    otter-grade command
+
+    Execute the otter-grader on a collected set of assignments.
+    """
+
+    ret = otter_grade(**kwargs)
     return ret
 
 

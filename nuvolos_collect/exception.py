@@ -34,3 +34,8 @@ class ManifestMissingException(NVCollectException):
 class SourceDoesNotExistException(NVCollectException):
     def __init__(self, msg):
         super().__init__(msg)
+
+
+class MissingAutograderFile(NVCollectException):
+    def __init__(self, msg):
+        super().__init__(msg)

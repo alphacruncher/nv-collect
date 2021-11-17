@@ -3,11 +3,7 @@ from nuvolos_collect.collect.utils import (
     identify_collectables,
     distinct_submissions,
     gather_latest_submissions,
-    path_identify,
-    path_prefix,
-    extract_instance_id,
     instance_grouped,
-    get_latest_assignment,
     create_folder_structure,
     copy_submissions,
 )
