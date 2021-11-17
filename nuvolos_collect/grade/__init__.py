@@ -7,7 +7,7 @@ from nuvolos_collect.handback.utils import read_manifest
 
 
 def otter_grade(source_folder, autograder_location, relative_path, grade_identifier=""):
-    # from otter.api import grade_submission
+    from otter.api import grade_submission
 
     if not os.path.exists(autograder_location):
         clog.error(
@@ -27,11 +27,16 @@ def otter_grade(source_folder, autograder_location, relative_path, grade_identif
     for d in homework_folders:
         location_folder = d["target"]
         full_hw_location = os.path.join(location_folder, relative_path)
+        clog.debug(f"Grading {full_hw_location}.")
 
-        # hw_result = grade_submission(full_hw_location, autograder_location)
-
-        # hw_result_dict = hw_result.to_dict()
-        hw_result_dict = {"a": 1}
+        if not os.path.exists(full_hw_location):
+            clog.warning(
+                f"No homework found at location {full_hw_location}. Continuing."
+            )
+            hw_result_dict = {full_hw_location: "Missing"}
+        else:
+            hw_result = grade_submission(full_hw_location, autograder_location)
+            hw_result_dict = hw_result.to_dict()
 
         results += [{"location": full_hw_location, "result": hw_result_dict}]
 
