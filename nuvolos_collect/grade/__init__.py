@@ -54,7 +54,7 @@ def otter_grade(source_folder, autograder_location, relative_path, grade_identif
         with open(student_result_location, "w") as fp:
             json.dump(hw_result_dict, fp)
         """
-        csv_score_result.write_csv(student_result_location)
+        csv_score_result.to_csv(student_result_location)
 
     full_result_file_loc = os.path.join(source_folder, f"grade{grade_identifier}.csv")
 
@@ -63,4 +63,4 @@ def otter_grade(source_folder, autograder_location, relative_path, grade_identif
         json.dump(results, fp)
     """
     csv_score = merge_csv(csv_results)
-    csv_score.write_csv(full_result_file_loc)
+    csv_score.to_csv(full_result_file_loc)

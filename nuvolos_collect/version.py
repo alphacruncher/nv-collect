@@ -8,5 +8,5 @@ This module contains project version information.
 .. moduleauthor:: Mate Kovacs <mate.kovacs@alphacruncher.com>
 """
 
-__version__ = "0.1.6"  #: the working version
-__release__ = "0.1.6"  #: the release version
+__version__ = "0.1.7"  #: the working version
+__release__ = "0.1.7"  #: the release version
