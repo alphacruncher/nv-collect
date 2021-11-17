@@ -42,6 +42,7 @@ def otter_grade(source_folder, autograder_location, relative_path, grade_identif
             hw_result = grade_submission(full_hw_location, autograder_location)
             hw_result_dict = hw_result.to_dict()
             csv_score_result = generate_df(hw_result_dict, d["src"])
+            clog.debug(csv_score_result)
 
         results += [{"location": full_hw_location, "result": hw_result_dict}]
         csv_results += [csv_score_result]
