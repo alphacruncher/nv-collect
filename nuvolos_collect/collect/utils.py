@@ -45,8 +45,20 @@ def distinct_submissions(collectables):
 
 
 def extract_instance_id(its):
-    pattern_instance = re.compile("(single_user_inst.*)/(.*)")
-    return [{pattern_instance.search(x).group(1): [x]} for x in its]
+    pattern_single_user_instance = re.compile("(single_user_inst.*)/(.*)")
+    pattern_group_instance = re.compile("(.*)/(.*)")
+
+    def extract_function(single, group, x):
+        try:
+            ret = single.search(x).group(1)
+        except:
+            ret = group.search(x).group(1)
+        return ret
+
+    return [
+        {extract_function(pattern_single_user_instance, pattern_group_instance, x): [x]}
+        for x in its
+    ]
 
 
 def instance_grouped(assignment_list):
