@@ -38,6 +38,7 @@ def path_prefix(path_split):
 def distinct_submissions(collectables):
     path_splits = [x.parts for x in collectables]
     relevant_info = list(set([path_prefix(x) for x in path_splits]))
+    clog.debug(f"Relevant info {relevant_info}")
     instance_id_map = extract_instance_id(relevant_info)
     clog.debug(instance_id_map)
     return instance_id_map
