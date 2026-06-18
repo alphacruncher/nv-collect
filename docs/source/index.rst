@@ -5,7 +5,7 @@
 nuvolos_collect
 ===============
 
-This is the Nuvolos Collector project.
+CLI tool for collecting, grading, and handing back student assignment submissions on Nuvolos.
 
 .. toctree::
    :maxdepth: 2

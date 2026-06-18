@@ -98,3 +98,31 @@ nvcollect handback --source_folder /files/test_collect
 
 * Notice that the `source_folder` here is the same folder to which we collected and then in which the grading process ran.
 
+8. Archiving assignments
+
+To create zip archives of assignments grouped by assignment name (rather than by student), use the `archive` command. This inverts the default structure from `student/assignment/` to `assignment/student/...`.
+
+```
+# Archive all assignments
+nvcollect archive --target_folder /files/archives
+
+# Archive a specific assignment
+nvcollect archive --target_folder /files/archives --assignment_name "first_assignment"
+
+# Archive a specific assignment and folder
+nvcollect archive --target_folder /files/archives --assignment_name "first_assignment" --assignment_folder assignment_1
+```
+
+The output structure will be:
+
+```
+/files/archives
++-- first_assignment
+|   +-- single_user_inst_<code1>
+|   |   +-- ...
+|   +-- single_user_inst_<code2>
+|   |   +-- ...
+|   +-- nvcollect_manifest.json
++-- first_assignment.zip
+```
+

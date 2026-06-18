@@ -110,3 +110,6 @@ ENV/
 
 # VS Code settings
 .vscode
+
+# Claude Code
+.claude

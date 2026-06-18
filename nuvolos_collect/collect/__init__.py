@@ -7,6 +7,7 @@ from nuvolos_collect.collect.utils import (
     create_folder_structure,
     copy_submissions,
 )
+from nuvolos_collect.collect.archive import archive
 from nuvolos_collect.exception import *
 
 

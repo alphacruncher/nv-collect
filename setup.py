@@ -39,7 +39,7 @@ if os.getenv("buildnum") is not None:
 
 setup(
     name='nuvolos_collect',
-    description="This is the Nuvolos Collector project.",
+    description="CLI tool for collecting, grading, and handing back student assignment submissions on Nuvolos.",
     long_description=long_description,
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     version=version,
@@ -51,7 +51,7 @@ setup(
     [console_scripts]
     nvcollect=nuvolos_collect.cli:cli
     """,
-    python_requires=">=0.1.0",
+    python_requires=">=3.8",
     license=None,  # noqa
     author='Mate Kovacs',
     author_email='mate.kovacs@alphacruncher.com',
@@ -70,7 +70,7 @@ setup(
       #   3 - Alpha
       #   4 - Beta
       #   5 - Production/Stable
-      "Development Status :: 3 - Alpha",
+      "Development Status :: 5 - Production/Stable",
 
       # Indicate who your project is intended for.
       "Intended Audience :: Developers",

@@ -9,7 +9,7 @@ import click_log
 from nuvolos_collect.logging import clog
 import click
 from .__init__ import __version__
-from nuvolos_collect.collect import collect
+from nuvolos_collect.collect import collect, archive
 from nuvolos_collect.handback import handback
 from nuvolos_collect.grade import otter_grade
 
@@ -118,6 +118,40 @@ def grade_assignment(ctx, **kwargs):
     """
 
     ret = otter_grade(**kwargs)
+    return ret
+
+
+@cli.command("archive")
+@click.option(
+    "--target_folder",
+    type=str,
+    required=True,
+    help="Sets the target folder where assignment zip archives are created.",
+)
+@click.option(
+    "--assignment_name",
+    type=str,
+    required=False,
+    default=None,
+    help="Optional filter: only archive this assignment. If omitted, all assignments are discovered and archived.",
+)
+@click.option(
+    "--assignment_folder",
+    type=str,
+    required=False,
+    default=None,
+    help="Optional filter: only archive this assignment folder. If omitted, all folders within each assignment are included.",
+)
+@click.pass_context
+def archive_assignment(ctx, **kwargs):
+    """
+    archive command
+
+    Collect all (or filtered) assignments, group submissions by assignment instead of by student,
+    and create a zip file per assignment. Output structure: target_folder/assignment_name/instance_id/...
+    """
+
+    ret = archive(**kwargs)
     return ret
 
 

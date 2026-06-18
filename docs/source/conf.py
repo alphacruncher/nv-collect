@@ -82,7 +82,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "nuvolos_collect"
-copyright = "2019, matek-alphacruncher"
+copyright = "2019-2026, matek-alphacruncher"
 author = "Mate Kovacs"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -212,7 +212,7 @@ texinfo_documents = [
         "nuvolos_collect Documentation",
         author,
         "nuvolos_collect",
-        "One line description of project.",
+        "CLI tool for collecting, grading, and handing back student assignment submissions on Nuvolos.",
         "Miscellaneous",
     )
 ]
